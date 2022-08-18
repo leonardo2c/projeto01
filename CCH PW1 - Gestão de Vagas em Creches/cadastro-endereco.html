@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Endereço</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #add8e6;
+}
+
+.form{
+    padding: 10px;
+}
+
+input{
+    padding: 5px;
+    margin: 5px;
+}
+
+table,tr,td{
+    height: 50px;
+    width: 500px;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+</style>
+<body>
+
+    <button onclick="goBack()">Voltar</button>
+
+    <div id="dfPessoas">
+        <form name="fPessoas">
+        <label for="uname"><b>Bairro:</b></label>
+        <input class="input" type="text" name="txBairro" required>
+    <br>
+        <label for="psw"><b>Cidade:</b></label>
+        <input class="input" type="text" name="txCidade" required>
+    <br>
+        <label for="psw"><b>CEP:</b></label>
+        <input class="input" type="text" name="txCEP" required>
+            
+        <input type="button" value="Registrar" onclick="registrar(txBairro.value, txCidade.value, txCEP.value)">
+        </form>
+
+
+    </div>
+
+    <div id="dtPessoas">
+    <table id="tbPessoas">
+
+    </table>    
+    </div>
+    <script>
+        function goBack(){
+            window.history.back()
+        }
+        function registrar(Bairro, Cidade, CEP){
+        var tb = document.getElementById("tbPessoas");
+        var qtdLinhas = tb.rows.length;
+        var linha = tb.insertRow(qtdLinhas);
+        var cellBairro = linha.insertCell(0);
+        var cellCidade = linha.insertCell(1);
+        var cellCEP = linha.insertCell(2);
+        cellBairro.innerHTML = Bairro;
+        cellCidade.innerHTML = Cidade;
+        cellCEP.innerHTML = CEP;
+        alert("Dados cadastrados com sucesso!")
+}
+    </script>
+</body>
+<script src="script.js"></script>
+</html>
